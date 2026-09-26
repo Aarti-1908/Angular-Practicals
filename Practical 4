@@ -1,0 +1,69 @@
+# Practical 04 - Property Binding
+
+## Aim
+
+To demonstrate Property Binding in Angular.
+
+## Theory
+
+Property Binding is used to bind a value from the component class to a property of an HTML element.
+
+1. app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  title = 'Property Binding Example';
+
+  imageUrl = 'https://angular.dev/assets/images/press-kit/angular_icon_gradient.gif';
+
+  imageWidth = 150;
+
+  buttonDisabled = false;
+}
+
+2. app.component.html
+<div class="container">
+
+  <h1>{{ title }}</h1>
+
+  <h2>Property Binding Example</h2>
+
+  <img [src]="imageUrl" [width]="imageWidth">
+
+  <br><br>
+
+  <button [disabled]="buttonDisabled">
+    Click Me
+  </button>
+
+</div>
+
+3. app.component.css
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: green;
+}
+
+img {
+  margin: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+4. README.md
