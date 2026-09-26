@@ -1,0 +1,61 @@
+# Practical 05 - Event Binding
+
+## Aim
+
+To demonstrate Event Binding in Angular.
+
+## Theory
+
+Event Binding is used to perform an action when an event occurs.
+
+1.app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  message = '';
+
+  showMessage() {
+    this.message = 'Hello! Button clicked successfully.';
+  }
+
+}
+
+2. app.component.html
+<div class="container">
+
+  <h1>Event Binding Example</h1>
+
+  <button (click)="showMessage()">
+    Click Me
+  </button>
+
+  <p>{{ message }}</p>
+
+</div>
+
+3. app.component.css
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  color: blue;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+p {
+  font-size: 20px;
+  color: green;
+}
