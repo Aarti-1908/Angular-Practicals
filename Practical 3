@@ -1,0 +1,54 @@
+# Practical 03 - Data Binding in Angular
+
+## Aim
+
+To study and implement different types of data binding in Angular.
+
+## Introduction
+
+Data binding is used to connect the data from the TypeScript component with the HTML view.
+
+Angular provides different types of data binding:
+
+1. Interpolation
+2. Property Binding
+3. Event Binding
+4. Two-Way Data Binding
+
+
+1. app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+
+  name = 'Aarti';
+  course = 'Angular';
+  college = 'MIT ACSC';
+
+}
+2. app.component.html
+
+<h1>String Interpolation</h1>
+
+<p>My Name is {{ name }}</p>
+
+<p>My Course is {{ course }}</p>
+
+<p>My College is {{ college }}</p>
+
+3. app.component.css
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  margin: 10px;
+}
