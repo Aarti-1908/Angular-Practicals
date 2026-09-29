@@ -16,7 +16,7 @@ To understand the basic structure of an Angular application and display a messag
 - CSS
 - Visual Studio Code
 
-1. app.component.ts
+1. app.ts
 
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
