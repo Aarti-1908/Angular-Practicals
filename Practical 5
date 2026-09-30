@@ -1,61 +1,131 @@
-# Practical 05 - Event Binding
+# Practical 5 – Time Table Using One-Way Data Binding
 
 ## Aim
 
-To demonstrate Event Binding in Angular.
+To create an Angular application to display a timetable using one-way data binding.
 
-## Theory
+## Objective
 
-Event Binding is used to perform an action when an event occurs.
+To understand how one-way data binding is used in Angular to display data from the TypeScript component on the HTML page.
 
-1.app.component.ts
-import { Component } from '@angular/core';
+## 1. app.ts
+
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {
-
-  message = '';
-
-  showMessage() {
-    this.message = 'Hello! Button clicked successfully.';
-  }
-
+export class App {
+   day = 'Monday';
+   subject = 'Angular';
+   time = '10:00 AM - 11:00 AM';
 }
 
-2. app.component.html
+## 2. app.html
+
 <div class="container">
 
-  <h1>Event Binding Example</h1>
+  <h1>My Time Table</h1>
 
-  <button (click)="showMessage()">
-    Click Me
-  </button>
+  <table>
 
-  <p>{{ message }}</p>
+    <tr>
+      <th>Day</th>
+      <th>Subject</th>
+      <th>Time</th>
+    </tr>
+
+    <tr>
+      <td>{{ day }}</td>
+      <td>{{ subject }}</td>
+      <td>{{ time }}</td>
+    </tr>
+
+    <tr>
+      <td>Tuesday</td>
+      <td>Python</td>
+      <td>11:00 AM - 12:00 PM</td>
+    </tr>
+
+    <tr>
+      <td>Wednesday</td>
+      <td>Database</td>
+      <td>10:00 AM - 11:00 AM</td>
+    </tr>
+
+    <tr>
+      <td>Thursday</td>
+      <td>Machine Learning</td>
+      <td>12:00 PM - 1:00 PM</td>
+    </tr>
+
+    <tr>
+      <td>Friday</td>
+      <td>Data Analytics</td>
+      <td>11:00 AM - 12:00 PM</td>
+    </tr>
+
+  </table>
 
 </div>
 
-3. app.component.css
+## 3. app.css
+
 .container {
   text-align: center;
   margin-top: 50px;
+  border: 2px solid black;
+  padding: 30px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
-  color: blue;
+  font-size: 32px;
 }
 
-button {
-  padding: 10px 20px;
+table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  font-size: 18px;
+}
+
+td {
   font-size: 16px;
-  cursor: pointer;
 }
 
-p {
-  font-size: 20px;
-  color: green;
-}
+## Program
+
+The Angular application displays a timetable using one-way data binding. The data is defined in the TypeScript component and displayed in the HTML page using interpolation `{{ }}`.
+
+## Output
+
+     My Time Table
+
+| Day | Subject | Time |
+|-----|---------|------|
+| Monday | Angular | 10:00 AM - 11:00 AM |
+| Tuesday | Python | 11:00 AM - 12:00 PM |
+| Wednesday | Database | 10:00 AM - 11:00 AM |
+| Thursday | Machine Learning | 12:00 PM - 1:00 PM |
+| Friday | Data Analytics | 11:00 AM - 12:00 PM |
+
+## Conclusion
+
+Thus, a timetable was successfully created using one-way data binding in an Angular application.
