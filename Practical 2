@@ -1,90 +1,32 @@
-# Practical 02 - Angular Components
+Assignment 02: Simple Timetable (Angular)
+====================================
 
-## Aim
+// app.component.ts
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-To create and use components in an Angular application.
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  schedule = [
+    { time: '9:00 AM', task: 'Math Class' },
+    { time: '10:00 AM', task: 'Science Class' },
+    { time: '11:00 AM', task: 'Break' },
+    { time: '11:30 AM', task: 'English Class' },
+    { time: '1:00 PM', task: 'Lunch' }
+  ];
+}
 
-## Introduction
-
-A component is a basic building block of an Angular application.
-
-A component contains:
-
-- HTML for the user interface
-- CSS for styling
-- TypeScript for the logic
-
-## Software Used
-
-- Angular
-- TypeScript
-- HTML
-- CSS
-- Visual Studio Code
-
-## Procedure
-
-### Step 1: Create an Angular Project
-
-Open Command Prompt or Terminal and type:
-
-ng new component-demo
-
-### Step 2: Open the Project
-
-cd component-demo
-
-### Step 3: Create a Component
-
-Run:
-
-ng generate component student
-
-or
-
-ng g c student
-
-### Step 4: Write Component Code
-
-The component files are created automatically.
-
-The main files are:
-
-- student.component.ts
-- student.component.html
-- student.component.css
-- student.component.spec.ts
-
-### Step 5: Add HTML Code
-
-In `student.component.html`, write:
-
-<h2>Student Information</h2>
-
-<p>Name: Aarti Navnath Tonpe</p>
-
-<p>Course: M.Sc. Computer Science</p>
-
-### Step 6: Run the Application
-
-Run:
-
-ng serve --open
-
-## Expected Output
-
-The browser displays:
-
-Student Information
-
-Name: Aarti Navnath Tonpe
-
-Course: M.Sc. Computer Science
-
-## Result
-
-The Angular component was successfully created and displayed in the application.
-
-## Conclusion
-
-Thus, an Angular component was successfully created and used in an Angular application.
+// app.component.html
+<h2>My Timetable</h2>
+<table border="1">
+  <tr><th>Time</th><th>Task</th></tr>
+  <tr *ngFor="let s of schedule">
+    <td>{{ s.time }}</td>
+    <td>{{ s.task }}</td>
+  </tr>
+</table>
