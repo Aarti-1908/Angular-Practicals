@@ -1,68 +1,109 @@
-# Practical 04 - Property Binding
+# Practical 4 – Display 10 Student Names
 
 ## Aim
 
-To demonstrate Property Binding in Angular.
+To create an Angular application to display 10 student names using an array.
 
-## Theory
+## Objective
 
-Property Binding is used to bind a value from the component class to a property of an HTML element.
+To understand how an array is created in Angular and how student names can be displayed on a web page.
 
-1. app.component.ts
-import { Component } from '@angular/core';
+## Technologies Used
+
+- Angular
+- TypeScript
+- HTML
+- CSS
+- Visual Studio Code
+
+## 1. app.ts
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class AppComponent {
+export class App {
 
-  title = 'Property Binding Example';
-
-  imageUrl = 'https://angular.dev/assets/images/press-kit/angular_icon_gradient.gif';
-
-  imageWidth = 150;
-
-  buttonDisabled = false;
+  students = [
+    'Aarti',
+    'Akshata',
+    'Aishwarya',
+    'Gauri',
+    'Bhumika',
+    'Pooja',
+    'Rohit',
+    'Rushi',
+    'Pallavi',
+    'Aditya'
+  ];
 }
 
-2. app.component.html
+##2. app.html
 <div class="container">
 
-  <h1>{{ title }}</h1>
+  <h1>Student Names</h1>
 
-  <h2>Property Binding Example</h2>
-
-  <img [src]="imageUrl" [width]="imageWidth">
-
-  <br><br>
-
-  <button [disabled]="buttonDisabled">
-    Click Me
-  </button>
+  <ol>
+    <li>{{ students[0] }}</li>
+    <li>{{ students[1] }}</li>
+    <li>{{ students[2] }}</li>
+    <li>{{ students[3] }}</li>
+    <li>{{ students[4] }}</li>
+    <li>{{ students[5] }}</li>
+    <li>{{ students[6] }}</li>
+    <li>{{ students[7] }}</li>
+    <li>{{ students[8] }}</li>
+    <li>{{ students[9] }}</li>
+  </ol>
 
 </div>
 
-3. app.component.css
+##3. app.css
 .container {
   text-align: center;
   margin-top: 50px;
+  padding: 30px;
+  width: 50%;
 }
 
 h1 {
-  color: blue;
+  font-size: 30px;
 }
 
-h2 {
-  color: green;
+ol {
+  text-align: left;
+  width: 50%;
+  margin: auto;
 }
 
-img {
-  margin: 20px;
+li {
+  font-size: 18px;
+  padding: 5px;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-}
+##Program
+
+The Angular application stores 10 student names in an array and displays the names on the web page using Angular data binding.
+
+##Output
+
+     Student Names
+
+1.Aarti
+2.Akshata
+3.Aishwarya
+4.Gauri
+5.Bhumika
+6.Pooja
+7.Rohit
+8.Rushi
+9.Pallavi
+10.Aditya
+
+##Conclusion
+
+Thus, 10 student names were successfully stored in an array and displayed using an Angular application.
